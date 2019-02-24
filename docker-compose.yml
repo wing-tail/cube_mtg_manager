@@ -1,0 +1,23 @@
+version: '3'
+services:
+    nginx:
+        image: nginx
+        ports:
+            - 8080:80
+        volumes:
+            - ./nginx:/etc/nginx/conf.d
+            - ./app:/var/www
+            - ./logs:/var/log
+    php:
+        build:
+            context: ./php
+        environment:
+            DB_CONNECTION: ${DB_CONNECTION}
+            DB_HOST: ${DB_HOST}
+            DB_PORT: ${DB_PORT}
+            DB_DATABASE: ${DB_DATABASE}
+            DB_USERNAME: ${DB_USERNAME}
+            DB_PASSWORD: ${DB_PASSWORD}
+        volumes:
+            - ./app:/var/www
+            - ./logs:/var/log
