@@ -68,8 +68,8 @@ class SetController extends Controller
             $response = curl_exec($client);
             $result = json_decode($response, true);
             foreach ($result['cards'] as $detail) {
-                if ($detail['name'] !== $en_name
-                    || empty($detail['imageUrl'])
+                if (empty($detail['imageUrl'])
+                    || strtolower($detail['name']) !== strtolower($en_name)
                 ) {
                     continue;
                 }

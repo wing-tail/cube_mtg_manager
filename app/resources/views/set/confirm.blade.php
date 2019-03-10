@@ -10,7 +10,7 @@
     @endif
 @endforeach
 </ul>
-<div style="display: none; clear: both;"></div>
+<div style="clear: both;"></div>
 <form action='save' method='post'>
     <input type='hidden' name='json' value='{{ $save_data }}'>
     <div>
