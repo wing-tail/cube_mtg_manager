@@ -15,11 +15,10 @@ class CreateCardList extends Migration
     {
         Schema::create('mtg_cube_card_list', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
-            $table->boolean('printed');
             $table->unsignedTinyInteger('type');
+            $table->string('name')->unique();
             $table->json('details')->nullable();
-            $table->index(['name', 'printed', 'type']);
+            $table->index(['type', 'name']);
             $table->timestamps();
         });
     }

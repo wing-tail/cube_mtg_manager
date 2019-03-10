@@ -1,11 +1,12 @@
 version: '3'
 services:
     nginx:
-        image: nginx
+        build:
+            context: ./nginx
         ports:
             - 8080:80
         volumes:
-            - ./nginx:/etc/nginx/conf.d
+            - ./nginx/conf.d:/etc/nginx/conf.d
             - ./app:/var/www
             - ./logs:/var/log
     php:

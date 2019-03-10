@@ -14,3 +14,7 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+$router->get('set', 'SetController@input');
+$router->post('set', 'SetController@confirm');
+$router->post('save', 'SaveController@main');
+$router->get('view', 'ViewController@main');
